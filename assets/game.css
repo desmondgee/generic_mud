@@ -1,0 +1,85 @@
+#chatroom-log {
+	height:250px;
+	overflow-y:scroll;
+	resize:none;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#chatroom-input-spacer {
+	height:16px;
+}
+#chatroom-input {
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	height:34px;
+}
+#chatroom-occupants-container {
+	height:300px;
+	list-style-type: none;
+	overflow-y:scroll;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color:white;
+}
+
+#chatroom-occupants li {
+    cursor:pointer;
+    text-align:center;
+}
+
+.page-divider {
+	background-color: black;
+	height:10px;
+}
+
+#page-footer {
+	background-color: grey;
+	color: white;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align:right;
+	border-top: solid black 2px;
+	border-bottom: solid black 2px;
+}
+
+#page-top-bar {
+	background-color: grey;
+	color: white;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border-top: solid black 2px;
+	border-bottom: solid black 2px;
+}
+
+#main-content {
+    background-color: #526652;
+    padding-bottom: 20px;
+}
+
+h3 {
+	color: #FFFFCC;
+	font-weight:bold;
+}
+
+#login-errors {
+    color:red;
+}
+
+#logout-link {
+    color: #80B2B2;
+    cursor:pointer;
+}
+#logout-link:link {
+    color: #80B2B2;
+}
+#logout-link:visted {
+    color: #80B2B2;
+}
+#logout-link:hover {
+    color: #336464;
+    text-decoration: none;
+}
+#logout-link:active {
+    color: #80B2B2;
+}
+
+#login-dialog .modal-content {
+    background-color: #DDDDDD;
+}
