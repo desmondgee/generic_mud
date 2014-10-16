@@ -105,7 +105,13 @@ The frontend uses the following files:
 * assets/game.js
 * assets/game.css 
 
-index.php just forwards to game.php.  game.php is the main html rendering file.  assets/game.js holds the javascript for game.php.  assets/game.css holds the css for game.php.
+index.php just forwards to game.php.  
+
+game.php is the main html rendering file.  
+
+assets/game.js holds the javascript for game.php.  
+
+assets/game.css holds the css for game.php.
 
 
 Game Backend Structure
