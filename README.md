@@ -78,6 +78,23 @@ This game uses MySQL and requires this database and these tables to be created.
     );
 
 
+World Generation
+----------------
+
+In addition to databases, some default rooms need to be created.  queries/generate_rooms.php exists for auto-generating random rooms.  You can visit that url to create your original rooms.  Since there is no admin permission infrastructure to prevent anybody from visiting this url, it is advised to remove this file from the server after it has done its job.
+
+The room generation algorith works as follows:
+
+1. Create a room at (0,0). This will be the starting point.
+2. Randomize number of branches from current room that it will "try" to create.
+3. When choosing directions, cardinal directions have a weight of 4 while up and down have a weight of 1. Select random directions with these weight biases for each room to be created.  If a room exists in that direction, skip creation for that direction.  Otherwise, create a room in that direction and put that room on the iteration queue.
+4. If # of rooms parameter has been satisfied, complete world generation.  Otherwise, go back to step 3 utilizing the next room on the iteration queue.  If no other rooms are on the queue, use a random previously created room instead.
+
+The algorithm temporarily stores the above in a Lazy3DArray(located in util/lazy3darray.php) structure.  This structure allows you to set and unset(delete) for various (x,y,z) coordinates. It also allows you to generate a list of coordinates when done to iterate over.
+
+The Lazy3DArray is then iterated upon to generate rooms at each (x,y,z) coordinate. There is also a random description generator inside queries/generate_rooms.php which applies a random description.
+
+
 Game Backend Structure
 ----------------------
 
