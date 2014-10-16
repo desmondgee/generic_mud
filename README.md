@@ -57,7 +57,7 @@ This game uses MySQL and requires this database and these tables to be created.
       
       name CHAR(12) NOT NULL UNIQUE,
       owner_type CHAR(12),
-      session_id CHAR(26),  // maybe 40 to be safe in case using different hashing.
+      session_id CHAR(26),
       
       last_ping_time TIMESTAMP,
       last_action_time TIMESTAMP,
