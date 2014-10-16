@@ -4,18 +4,18 @@
 
     session_start();
 
-	//==================================================================
-	// Message And State Syncronization
+    //==================================================================
+    // Message And State Syncronization
     //
-    // A url that is designed to be polled every 500ms. It keeps the
+    // A url that is designed to be polled every 250-500ms. It keeps the
     // client informed and update with new messages and info about the
     // current state of the world and current room.
-	//		
-	// Usage: POST to this url.
-	//
-	// Return: JSON with various update parameters for the client.
-	//
-	//------------------------------------------------------------------
+    //		
+    // Usage: POST to this url.
+    //
+    // Return: JSON with various update parameters for the client.
+    //
+    //------------------------------------------------------------------
     
     require 'config/sql_connect.php';
     
