@@ -10,7 +10,7 @@
     // A url that is designed to be polled every 250-500ms. It keeps the
     // client informed and update with new messages and info about the
     // current state of the world and current room.
-    //		
+    //        
     // Usage: POST to this url.
     //
     // Return: JSON with various update parameters for the client.
@@ -19,10 +19,10 @@
     
     require 'config/sql_connect.php';
     
-	if (mysqli_connect_errno()) {
-		echo json_encode(array("success"=>false,"errors"=>array("Failed to connect to MySQL: " . mysqli_connect_error())));
+    if (mysqli_connect_errno()) {
+        echo json_encode(array("success"=>false,"errors"=>array("Failed to connect to MySQL: " . mysqli_connect_error())));
         return;
-	}
+    }
     
     require 'config/memcached.php';
     

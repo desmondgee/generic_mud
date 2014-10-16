@@ -1,37 +1,37 @@
 
 
 (function ($) {
-	$.fn.getCursorPosition = function () {
-		var input = this.get(0);
-		if (!input) return; // No (input) element found
-		if ('selectionStart' in input) {
-			// Standard-compliant browsers
-			return input.selectionStart;
-		} else if (document.selection) {
-			// IE
-			input.focus();
-			var sel = document.selection.createRange();
-			var selLen = document.selection.createRange().text.length;
-			sel.moveStart('character', -input.value.length);
-			return sel.text.length - selLen;
-		}
-	}
+    $.fn.getCursorPosition = function () {
+        var input = this.get(0);
+        if (!input) return; // No (input) element found
+        if ('selectionStart' in input) {
+            // Standard-compliant browsers
+            return input.selectionStart;
+        } else if (document.selection) {
+            // IE
+            input.focus();
+            var sel = document.selection.createRange();
+            var selLen = document.selection.createRange().text.length;
+            sel.moveStart('character', -input.value.length);
+            return sel.text.length - selLen;
+        }
+    }
 
-	$.fn.selectRange = function (start, end) {
-		if (!end) end = start;
-		return this.each(function () {
-			if (this.setSelectionRange) {
-				this.focus();
-				this.setSelectionRange(start, end);
-			} else if (this.createTextRange) {
-				var range = this.createTextRange();
-				range.collapse(true);
-				range.moveEnd('character', end);
-				range.moveStart('character', start);
-				range.select();
-			}
-		});
-	};
+    $.fn.selectRange = function (start, end) {
+        if (!end) end = start;
+        return this.each(function () {
+            if (this.setSelectionRange) {
+                this.focus();
+                this.setSelectionRange(start, end);
+            } else if (this.createTextRange) {
+                var range = this.createTextRange();
+                range.collapse(true);
+                range.moveEnd('character', end);
+                range.moveStart('character', start);
+                range.select();
+            }
+        });
+    };
 })(jQuery);
 
 $(function () {
@@ -103,54 +103,54 @@ $(function () {
         self.open = true;
     }
     
-	function Client() {
+    function Client() {
 
-		///=========================================
-		///=========== Self Relationship
-		///=========================================
+        ///=========================================
+        ///=========== Self Relationship
+        ///=========================================
 
-		var self = this;
+        var self = this;
         
         
         ///=========================================
-		///=========== Data
-		///=========================================
+        ///=========== Data
+        ///=========================================
         
         self.login = new Login();
         
 
-		///=========================================
-		///=========== JQuery Cache
-		///=========================================
+        ///=========================================
+        ///=========== JQuery Cache
+        ///=========================================
 
-		self.log = $("#chatroom-log");
-		self.input = $("#chatroom-input");
-		self.sendButton = $("#chatroom-send-button");
-		self.occupants = $("#chatroom-occupants");
+        self.log = $("#chatroom-log");
+        self.input = $("#chatroom-input");
+        self.sendButton = $("#chatroom-send-button");
+        self.occupants = $("#chatroom-occupants");
         self.logout = $("#logout-link");
 
 
-		///=========================================
-		///=========== State Variables
-		///=========================================
+        ///=========================================
+        ///=========== State Variables
+        ///=========================================
 
-		var sendInProgress = false;
+        var sendInProgress = false;
 
 
-		///=========================================
-		///=========== Game Log Actions
-		///=========================================
+        ///=========================================
+        ///=========== Game Log Actions
+        ///=========================================
 
-		self.write = function (msg) {
+        self.write = function (msg) {
             
             // Check if scrolled to bottom of log.
             // Got -12 through experimentation to find the bottom scroll value.
             // There should be a more robust way than this, but this works for now.
             var atBottom = (self.log.scrollTop() + self.log.height() - self.log[0].scrollHeight == -12);
             
-			var result = self.log.val();
-			if (result.length != 0) result += "\n";
-			result += msg;
+            var result = self.log.val();
+            if (result.length != 0) result += "\n";
+            result += msg;
             
             // keep log from going too large. This will likely cut off
             // part of the oldest log entry, but that entry is about to
@@ -160,26 +160,26 @@ $(function () {
             }
 
             // refresh log
-			self.log.val(result);
+            self.log.val(result);
             
             // Keep at bottom if was at bottom.
             if (atBottom)
                 self.log.scrollTop(self.log[0].scrollHeight);
-		};
+        };
 
-		///=========================================
-		///=========== Input Field Actions
-		///=========================================
+        ///=========================================
+        ///=========== Input Field Actions
+        ///=========================================
 
-		function sendCommand() {
-			var msg = self.input.val();
-			if (msg.length == 0 || sendInProgress) return;
+        function sendCommand() {
+            var msg = self.input.val();
+            if (msg.length == 0 || sendInProgress) return;
 
-			sendInProgress = true;
-			self.sendButton.addClass("disabled");
-			self.sendButton.text("Submitting..");
+            sendInProgress = true;
+            self.sendButton.addClass("disabled");
+            self.sendButton.text("Submitting..");
 
-			self.input.val("");
+            self.input.val("");
             
             $.ajax({url:"send.php", type:"POST", data:{message:msg}, dataType:"json"})
                 .done(function(result){
@@ -198,19 +198,19 @@ $(function () {
                 });
 
             /*
-			setTimeout(function () {
-				self.write(msg);
-				self.sendButton.removeClass("disabled");
-				self.sendButton.text("Send");
-				sendInProgress = false;
-			}, Math.random() * 400 + 200);
+            setTimeout(function () {
+                self.write(msg);
+                self.sendButton.removeClass("disabled");
+                self.sendButton.text("Send");
+                sendInProgress = false;
+            }, Math.random() * 400 + 200);
             */
 
-		}
+        }
         
         ///=========================================
-		///=========== Auto Sync
-		///=========================================
+        ///=========== Auto Sync
+        ///=========================================
         
         setInterval(function() {
             $.ajax({url:"remote.php", dataType:"json"})
@@ -265,35 +265,35 @@ $(function () {
                 self.login.show();
         }
 
-		///=========================================
-		///=========== User Events
-		///=========================================
+        ///=========================================
+        ///=========== User Events
+        ///=========================================
 
         // click person's name
-		self.occupants.on("click", "li", function (e) {
-			var name = $(e.currentTarget).text();
-			var msg = "tell " + name + " ";
-			self.input.val(msg);
-			self.input.focus();
-			self.input.selectRange(msg.length);
-		});
+        self.occupants.on("click", "li", function (e) {
+            var name = $(e.currentTarget).text();
+            var msg = "tell " + name + " ";
+            self.input.val(msg);
+            self.input.focus();
+            self.input.selectRange(msg.length);
+        });
 
-		// input + enter
-		self.input.keyup(function (e) {
-			if (e.keyCode == 13) sendCommand();
-		});
+        // input + enter
+        self.input.keyup(function (e) {
+            if (e.keyCode == 13) sendCommand();
+        });
 
-		// input + send button
-		self.sendButton.click(sendCommand);
+        // input + send button
+        self.sendButton.click(sendCommand);
         
         // logout link
         self.logout.click(function() {
             $.ajax({url:"logout.php", type:"POST"});
         });
 
-	}
+    }
 
-	// Initialize
-	var client = new Client();
+    // Initialize
+    var client = new Client();
 });
 

@@ -1,21 +1,21 @@
 #chatroom-log {
-	height:250px;
-	overflow-y:scroll;
-	resize:none;
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    height:250px;
+    overflow-y:scroll;
+    resize:none;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #chatroom-input-spacer {
-	height:16px;
+    height:16px;
 }
 #chatroom-input {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	height:34px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    height:34px;
 }
 #chatroom-occupants-container {
-	height:300px;
-	list-style-type: none;
-	overflow-y:scroll;
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    height:300px;
+    list-style-type: none;
+    overflow-y:scroll;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color:white;
 }
 
@@ -25,27 +25,27 @@
 }
 
 .page-divider {
-	background-color: black;
-	height:10px;
+    background-color: black;
+    height:10px;
 }
 
 #page-footer {
-	background-color: grey;
-	color: white;
-	font-weight: bold;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-align:right;
-	border-top: solid black 2px;
-	border-bottom: solid black 2px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align:right;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
 }
 
 #page-top-bar {
-	background-color: grey;
-	color: white;
-	font-weight: bold;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	border-top: solid black 2px;
-	border-bottom: solid black 2px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
 }
 
 #main-content {
@@ -54,8 +54,8 @@
 }
 
 h3 {
-	color: #FFFFCC;
-	font-weight:bold;
+    color: #FFFFCC;
+    font-weight:bold;
 }
 
 #login-errors {
