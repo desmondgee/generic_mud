@@ -95,6 +95,19 @@ The algorithm temporarily stores the above in a Lazy3DArray(located in util/lazy
 The Lazy3DArray is then iterated upon to generate rooms at each (x,y,z) coordinate. There is also a random description generator inside queries/generate_rooms.php which applies a random description.
 
 
+Game Frontend Structure
+-----------------------
+
+The frontend uses the following files:
+
+* index.php
+* game.php
+* assets/game.js
+* assets/game.css 
+
+index.php just forwards to game.php.  game.php is the main html rendering file.  assets/game.js holds the javascript for game.php.  assets/game.css holds the css for game.php.
+
+
 Game Backend Structure
 ----------------------
 
