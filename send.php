@@ -6,20 +6,20 @@
 
     session_start();
 
-	//==================================================================
-	// Command Processor
-	//		
-	// Usage: POST to this url with a 'message' parameter. This page will 
+    //==================================================================
+    // Command Processor
+    //		
+    // Usage: POST to this url with a 'message' parameter. This page will 
     //     validate the syntax and permissions of the message.  If it passes, 
     //     the message will perform its commands and pushes updates to 
     //      relevant adventurer message queues.
-	//
-	// Return: void. All messages(including errors) are appended to the
-	//     adventurer's message queue where they'll be pull in a
-	//     separate call on the user's next regular update request.
-	//     Doing this prevents messages from being out of order.
-	//
-	//------------------------------------------------------------------
+    //
+    // Return: void. All messages(including errors) are appended to the
+    //     adventurer's message queue where they'll be pull in a
+    //     separate call on the user's next regular update request.
+    //     Doing this prevents messages from being out of order.
+    //
+    //------------------------------------------------------------------
     
     //=========== Define Commands
     
