@@ -4,7 +4,7 @@ generic_mud
 Project Description
 -------------------
 
-This is a programming challenge created by Desmond Gee.
+This is a programming challenge completed by Desmond Gee.
 
 Users login with a name and are able to chat with other users in the same room.
 
@@ -92,7 +92,7 @@ The room generation algorith works as follows:
 
 The algorithm temporarily stores the above in a Lazy3DArray(located in util/lazy3darray.php) structure.  This structure allows you to set and unset(delete) for various (x,y,z) coordinates. It also allows you to generate a list of coordinates when done to iterate over.
 
-The Lazy3DArray is then iterated upon to generate rooms at each (x,y,z) coordinate. There is also a random description generator inside queries/generate_rooms.php which applies a random description.
+The Lazy3DArray is then iterated upon to generate rooms at each (x,y,z) coordinate. There is also a random description generator inside queries/generate_rooms.php which applies a random description to each room.
 
 
 Game Frontend Structure
@@ -119,7 +119,7 @@ Game Backend Structure
 
 The game has two primary access files which the client sends AJAX requests to to inform and receive information to/from the server.  These files are:
 
-* remote.php and
+* remote.php
 * send.php
 
 remote.php is pinged by the client every 250ms. This value can be changed in the game.js file where it does setInterval with an ajax call.  The response from remote.php returns a lot of useful information including number of users online, current room occupants, login state, and queued game log messages.
