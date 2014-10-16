@@ -113,7 +113,7 @@ How The Login System Works
 5. Login state information is relayed to the client through the remote.php file which is pinged every X milliseconds. Through this ping, the cilent will automatically remove the login screen or kick the user back out to the login screen.
 
 
-Clearing Timeout Adventurers
+Clearing Timed Out Adventurers
 ----------------------------
 
 The server is pinged by the client every X milliseconds to remote.php. If that user is logged in as an adventurer, it refreshes the last_ping_time field on that adventurer.
